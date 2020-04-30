@@ -8,7 +8,6 @@ class CustomizeListItem extends Component {
 
   render(){
     const itemHash = slugify(JSON.stringify(this.props.item));
-console.log(this.props.updateFeature);
     return (
           <div key={itemHash} className="feature__item">
             <input
