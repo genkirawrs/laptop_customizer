@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import FEATURES from '../store.js';
+import USCurrencyFormat from '../currency.js';
 import slugify from 'slugify';
 
 import './CustomizeListItem.css';
@@ -7,7 +9,9 @@ import './CustomizeListItem.css';
 class CustomizeListItem extends Component {
 
   render(){
-    const itemHash = slugify(JSON.stringify(this.props.item));
+    const item = FEATURES[this.props.feature][this.props.id];
+    const itemHash = slugify(JSON.stringify(item));
+
     return (
           <div key={itemHash} className="feature__item">
             <input
@@ -15,11 +19,11 @@ class CustomizeListItem extends Component {
               id={itemHash}
               className="feature__option"
               name={slugify(this.props.feature)}
-              checked={this.props.item.name === this.props.selected[this.props.feature].name}
-              onChange={e => this.props.updateFeature(this.props.feature, this.props.item)}
+              checked={item.name === this.props.selected[this.props.feature].name}
+              onChange={e => this.props.updateFeature(this.props.feature, item)}
             />
             <label htmlFor={itemHash} className="feature__label">
-              {this.props.item.name} ({this.props.currency.format(this.props.item.cost)})
+              {item.name} ({USCurrencyFormat.format(item.cost)})
             </label>
           </div>
     );

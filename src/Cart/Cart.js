@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import USCurrencyFormat from '../currency.js';
 
 import './Cart.css';
 
@@ -13,7 +14,7 @@ class Cart extends Component {
           <div className="summary__option__label">{feature} </div>
           <div className="summary__option__value">{selectedOption.name}</div>
           <div className="summary__option__cost">
-            {this.props.currency.format(selectedOption.cost)}
+            {USCurrencyFormat.format(selectedOption.cost)}
           </div>
         </div>
       );

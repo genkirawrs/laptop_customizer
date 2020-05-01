@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import USCurrencyFormat from '../currency.js';
 
 import './Total.css';
 
@@ -13,7 +14,7 @@ class Total extends Component {
         <div className="summary__total">
           <div className="summary__total__label">Total</div>
           <div className="summary__total__value">
-            {this.props.currency.format(total)}
+            {USCurrencyFormat.format(total)}
           </div>
         </div>
     )

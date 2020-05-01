@@ -37,12 +37,3 @@ main {
   flex-direction: row;
   margin: 0 auto;
 }
-
-.main__form {
-  flex: 4;
-}
-
-.main__summary {
-  flex: 3;
-  margin-left: 0.2rem;
-}

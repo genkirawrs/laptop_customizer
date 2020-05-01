@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
-import CustomizeList from './CustomizeList/CustomizeList';
-import Cart from './Cart/Cart';
-import Total from './Total/Total';
+import Header from './Header';
+import SectionCustomize from './SectionCustomize/SectionCustomize';
+import SectionSummary from './SectionSummary/SectionSummary';
 
 import './App.css';
 
-
-// This object will allow us to
-// easily convert numbers into US dollar values
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
 
 class App extends Component {
   state = {
@@ -46,29 +39,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <Header/>
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-	    <CustomizeList 
-		currency={USCurrencyFormat} 
+	    <SectionCustomize
 		selected={this.state.selected} 
 		updateFeature ={(feature, newValue)=>this.updateFeature(feature, newValue)}
 	    />
-          </form>
-          <section className="main__summary">
-            <h2>Your cart</h2>
-	    <Cart
-		currency={USCurrencyFormat}
-		selected={this.state.selected}
-	    />
-	    <Total
-		currency={USCurrencyFormat}
+	    <SectionSummary
                 selected={this.state.selected}
 	    />
-          </section>
         </main>
       </div>
     );

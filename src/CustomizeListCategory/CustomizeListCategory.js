@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FEATURES from '../store.js';
 import CustomizeListItem from '../CustomizeListItem/CustomizeListItem';
 import './CustomizeListCategory.css';
 
@@ -6,15 +7,13 @@ class CustomizeListCategory extends Component {
 
   render(){
       const featureHash = this.props.feature + '-' + this.props.id;
-      const options = this.props.options.map((item,key) => {
+      const options = FEATURES[this.props.feature].map((item,key) => {
         return (
 	  <CustomizeListItem 
 	    key={key} 
-	    item={item}
-	    options={this.props.options}
+	    id={key}
 	    feature={this.props.feature}
 	    selected={this.props.selected}
-	    currency={this.props.currency}
 	    updateFeature ={(feature, newValue)=>this.props.updateFeature(feature, newValue)} 
 	  />
         );
